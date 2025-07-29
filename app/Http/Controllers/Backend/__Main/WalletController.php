@@ -122,7 +122,7 @@ class WalletController extends Controller {
   Name : ' . $user->name . '
   Balance : ' . $request->gross_amount,
   'countryCode' => '62'),
-          CURLOPT_HTTPHEADER => array('Authorization: ' . env('APP_API', '')),
+          CURLOPT_HTTPHEADER => array('Authorization: ' . env('APP_NUMBER_SEND', '')),
         ));
         curl_exec($curl);
       }
