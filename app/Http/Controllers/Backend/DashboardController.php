@@ -18,7 +18,16 @@ class DashboardController extends Controller{
   }
 
   public function index() {
-    return view('pages.backend.dashboard');
+    $now = \Carbon\Carbon::now()->timestamp;
+    $item = $this->model::get();
+    foreach($item as $item) {
+      if ($now - strtotime($item->created_at) > 300) { $this->model::where('id', $item->id)->update(['status' => 3]); }
+      else if ($now - strtotime($item->created_at) > 60) { $this->model::where('id', $item->id)->update(['status' => 2]); }
+      else { $this->model::where('id', $item->id)->update(['status' => 1]); }
+    }
+
+    $model = Transaction::take(5)->where('id_user', Auth::user()->id)->orderby('created_at', 'desc')->get();
+    return view('pages.backend.dashboard', compact('model'));
   }
 
   public function file_manager() {
