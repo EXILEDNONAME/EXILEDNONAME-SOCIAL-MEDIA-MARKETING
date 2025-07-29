@@ -12,15 +12,14 @@ class TransactionController extends Controller {
 
   use DefaultController;
   use ExtensionController;
-  
+
   function __construct() {
     $this->middleware(['auth', 'verified']);
     $this->model = 'App\Models\Backend\__Main\Transaction';
     $this->path = 'pages.backend.__main.transaction.';
     $this->url = '/dashboard/transactions';
-    $this->data = $this->model::where('id_user', Auth::user()->id)->orderby('created_at', 'desc')->get();
+    $this->data = $this->model::orderby('created_at', 'desc')->get();
   }
-
 
   /**
   **************************************************
@@ -39,7 +38,7 @@ class TransactionController extends Controller {
 
     $model = $this->model;
     if (request()->ajax()) {
-      return DataTables::of($this->data)
+      return DataTables::of($this->model::where('id_user', Auth::User()->id)->get())
       ->editColumn('date_start', function ($order) { return empty($order->date_start) ? NULL : \Carbon\Carbon::parse($order->date_start)->format('d F Y, H:i'); })
       ->editColumn('date_end', function ($order) { return empty($order->date_end) ? NULL : \Carbon\Carbon::parse($order->date_end)->format('d F Y, H:i'); })
       ->editColumn('created_at', function ($order) { return empty($order->created_at) ? NULL : \Carbon\Carbon::parse($order->created_at)->format('d F Y, H:i'); })
