@@ -146,7 +146,7 @@ class OrderController extends Controller {
 
       // AUTOMATION
       $data = Product::where('id', $request->id_product)->first();
-      $api = env('API_SMM', '');
+      $api = env('APP_API', '');
       $service = $data->id_service;
       $link = $request->target;
       $quantity = $request->quantity;
