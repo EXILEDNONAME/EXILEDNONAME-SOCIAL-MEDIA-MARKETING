@@ -3,7 +3,7 @@
     <ul class="menu-nav">
       <li class="menu-item menu-item-submenu menu-item-rel menu-item-active" data-menu-toggle="click" aria-haspopup="true">
         <a href="javascript:;" class="menu-link menu-toggle">
-          <span class="menu-text">Pages</span>
+          <span class="menu-text"> Dashboard </span>
           <i class="menu-arrow"></i>
         </a>
       </li>

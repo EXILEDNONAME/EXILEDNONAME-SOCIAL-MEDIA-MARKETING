@@ -42,5 +42,20 @@
       @endif
     </div>
 
+    <div class="d-flex align-items-center">
+      <a href="/dashboard/wallets" class="btn btn-secondary btn-sm font-weight-bold font-size-base mr-1">
+        <i class="icon-md fas fa-wallet text-info"></i>
+        @if (!empty(\DB::table('main_wallets')->where('id_user', Auth::user()->id)->first()))
+        <?php $fullbalance =\DB::table('main_wallets')->where('id_user', Auth::user()->id)->first(); ?>
+        Rp {{ number_format($fullbalance->balance, 2, ",", "."); }}
+        @else
+          Rp {{ number_format(0, 2, ",", "."); }}
+        @endif
+      </a>
+      @role('master-administrator')
+      <a href="/dashboard/transactions/all" class="btn btn-secondary btn-sm font-weight-bold font-size-base"><i class="icon-md fas fa-server text-danger"></i></a>
+      @endrole
+    </div>
+
   </div>
 </div>
