@@ -56,10 +56,10 @@ class WalletController extends Controller {
 
   public function checkout(Request $request) {
     $request->validate(
-      ['balance' => 'required|numeric|min:10|max:100000'],
+      ['balance' => 'required|numeric|min:10|max:50000'],
       [
         'balance.min'    => 'Minimal Top Up Rp 1.000',
-        'balance.max'    => 'Maksimal Top Up Rp 100.000',
+        'balance.max'    => 'Maksimal Top Up Rp 50.000',
       ],
     );
     $userId = Auth::id();
@@ -79,10 +79,12 @@ class WalletController extends Controller {
     \Midtrans\Config::$isSanitized = true;
     \Midtrans\Config::$is3ds = true;
 
+    $ppn = ($request->balance * 0.7) / 100;
+
     $params = array(
       'transaction_details' => array(
         'order_id' => $number,
-        'gross_amount' => $request->balance,
+        'gross_amount' => $request->balance + $ppn,
       ),
       'customer_details' => array(
         'id' => Auth::user()->id,

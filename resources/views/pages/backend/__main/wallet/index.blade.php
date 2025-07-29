@@ -3,7 +3,7 @@
 
 @push('box')
 <div class="row">
-  <div class="col-xl-6 col-sm-6">
+  <div class="col-12">
     <div class="card card-custom bgi-no-repeat card-stretch gutter-b" style="background-position: right top; background-size: 30% auto; background-image: url({{ env('APP_URL') }}/assets/backend/media/svg/shapes/abstract-4.svg)">
       <div class="card-body">
         <center>
