@@ -23,7 +23,7 @@
 
         <b> DESKRIPSI </b>
           <br>
-          ♦ Minimal Deposit ≈ Rp 1.000 <br>
+          ♦ Minimal Deposit ≈ Rp 10 <br>
           ♦ Masukkan Jumlah Deposit => <br>
           ♦ Periksa kembali dan Tekan Tombol Submit apabila telah sesuai. <br>
           <hr>

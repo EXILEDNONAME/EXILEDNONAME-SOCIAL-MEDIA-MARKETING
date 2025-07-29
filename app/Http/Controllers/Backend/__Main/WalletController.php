@@ -58,7 +58,7 @@ class WalletController extends Controller {
     $request->validate(
       ['balance' => 'required|numeric|min:10|max:50000'],
       [
-        'balance.min'    => 'Minimal Top Up Rp 1.000',
+        'balance.min'    => 'Minimal Top Up Rp 10',
         'balance.max'    => 'Maksimal Top Up Rp 50.000',
       ],
     );
