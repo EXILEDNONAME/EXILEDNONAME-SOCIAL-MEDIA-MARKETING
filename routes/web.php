@@ -34,7 +34,6 @@ Route::group([
   Route::get('/', 'ProductController@index')->name('index');
 });
 
-
 // TRANSACTIONS
 Route::group([
   'as' => 'dashboard.main.transactions.',

@@ -50,6 +50,7 @@ return [
     'in-progress'                 => 'In Progress',
     'logs'                        => 'Logs',
     'logout'                      => 'Logout',
+    'main'                        => 'Main',
     'no'                          => 'No',
     'optimizations'               => 'Optimizations',
     'pending'                     => 'Pending',

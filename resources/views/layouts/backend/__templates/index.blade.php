@@ -12,9 +12,10 @@
     <div class="card card-custom gutter-b" data-card="true" id="exilednoname_card">
       <div class="card-header">
         <div class="card-title">
-          <h3 class="card-label"> Main </h3>
+          <h3 class="card-label"> {{ __('default.label.main') }} </h3>
         </div>
         <div class="card-toolbar">
+          @if (!empty($page) && $page == 'datatable-index')
           <a href="{{ URL::Current() }}/create" class="btn btn-icon btn-xs btn-hover-light-primary" title="{{ __('default.label.create') }}"><i class="fas fa-plus"></i></a>
           <a id="table-refresh" class="btn btn-icon btn-xs btn-hover-light-primary" title="{{ __('default.label.refresh') }}"><i class="fas fa-sync-alt"></i></a>
           <div data-toggle="collapse" data-target="#collapse-filter"><a class="btn btn-icon btn-xs btn-hover-light-primary" title="{{ __('default.label.filter./') }}"><i class="fas fa-filter"></i></a></div>
@@ -48,6 +49,9 @@
               </div>
             </div>
           </div>
+          @endif
+
+          @stack('toolbar-button')
         </div>
       </div>
       <div class="card-body" id="exilednoname_body">
