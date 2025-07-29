@@ -44,7 +44,8 @@ class OrderController extends Controller {
       else { $this->model::where('id', $item->id)->update(['status' => 1]); }
     }
 
-    $model = $this->model::take(3)->where('id_user', Auth::user()->id)->orderby('created_at', 'desc')->get();
+    $data = $this->model::take(3)->where('id_user', Auth::user()->id)->orderby('created_at', 'desc')->get();
+    $model = $this->model;
     $url = $this->url;
     if (request()->ajax()) {
       return DataTables::of(Product::where('active', 1)->orderby('name', 'asc')->get())
@@ -55,7 +56,7 @@ class OrderController extends Controller {
       ->rawColumns(['description', 'show'])
       ->addIndexColumn()->make(true);
     }
-    return view($this->path . 'index', compact('model', 'url'));
+    return view($this->path . 'index', compact('data', 'model', 'url'));
   }
 
   /**

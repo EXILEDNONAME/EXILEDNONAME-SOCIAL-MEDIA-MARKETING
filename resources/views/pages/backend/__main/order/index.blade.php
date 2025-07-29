@@ -19,7 +19,7 @@
           </tr>
         </thead>
         <tbody>
-          @foreach($model as $transaction)
+          @foreach($data as $transaction)
           <tr>
             <td class="text-nowrap text-center">
               @if ($transaction->status == 1) <span class="label label-warning label-inline"> Pending </span>
