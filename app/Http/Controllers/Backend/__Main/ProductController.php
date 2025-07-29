@@ -20,7 +20,6 @@ class ProductController extends Controller {
     $this->data = $this->model::where('active', 1)->orderby('name', 'asc')->get();
   }
 
-
   /**
   **************************************************
   * @return INDEX
