@@ -64,7 +64,7 @@ class WalletController extends Controller {
     );
     $userId = Auth::id();
     $url = $this->url;
-    $number = rand();
+    $number = time();
     $request->request->add([
       'id_order'      => $number,
       'id_user' => Auth::User()->id,
@@ -73,18 +73,15 @@ class WalletController extends Controller {
     $order = WalletTransaction::create($request->all());
     $database = WalletTransaction::orderby('created_at', 'desc')->first();
 
-
     \Midtrans\Config::$serverKey = config('midtrans.server_key');
     \Midtrans\Config::$isProduction = config('midtrans.is_production');
     \Midtrans\Config::$isSanitized = true;
     \Midtrans\Config::$is3ds = true;
 
-    $ppn = ($request->balance * 0.7) / 100;
-
     $params = array(
       'transaction_details' => array(
         'order_id' => $number,
-        'gross_amount' => $request->balance + $ppn,
+        'gross_amount' => $request->balance,
       ),
       'customer_details' => array(
         'id' => Auth::user()->id,
