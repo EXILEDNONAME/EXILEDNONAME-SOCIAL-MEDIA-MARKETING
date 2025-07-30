@@ -54,5 +54,5 @@ Route::group([
 ], function () {
   Route::get('/', 'WalletController@index')->name('index');
   Route::post('/checkout', 'WalletController@checkout')->name('checkout');
-
+  Route::post('/midtrans-callback', 'WalletController@callback')->name('callback');
 });
