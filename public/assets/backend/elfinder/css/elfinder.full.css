@@ -1899,8 +1899,8 @@ div.elfinder {
 .elfinder-navbar-root-ftp .elfinder-cwd-icon,
 .elfinder-cwd .elfinder-navbar-root-ftp.elfinder-droppable-active .elfinder-cwd-icon,
 .elfinder-cwd-view-list .elfinder-navbar-root-ftp td .elfinder-cwd-icon {
-    background-image: url("{{ env('APP_URL') }}/assets/backend/elfinder/css/img/volume_icon_ftp.svg");
-    background-image: url("{{ env('APP_URL') }}/assets/backend/elfinder/css/img/volume_icon_ftp.png") \9;
+    background-image: url("/assets/backend/elfinder/css/img/volume_icon_ftp.svg");
+    background-image: url("/assets/backend/elfinder/css/img/volume_icon_ftp.png") \9;
     background-position: 0 0;
     background-size: contain;
 }
