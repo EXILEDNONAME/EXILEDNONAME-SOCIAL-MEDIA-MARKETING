@@ -3716,8 +3716,8 @@ button.elfinder-info-button {
 
 /* root icon of each volume "\9" for IE8 trick */
 .elfinder-tree .elfinder-navbar-root-local .elfinder-navbar-icon {
-    background-image: url("../img/volume_icon_local.svg");
-    background-image: url("../img/volume_icon_local.png") \9;
+    background-image: url("{{ env('APP_URL') }}/assets/backend/elfinder/css/img/volume_icon_local.svg");
+    background-image: url("{{ env('APP_URL') }}/assets/backend/elfinder/css/img/volume_icon_local.png") \9;
 }
 
 .elfinder-tree .elfinder-navbar-root-trash .elfinder-navbar-icon {
