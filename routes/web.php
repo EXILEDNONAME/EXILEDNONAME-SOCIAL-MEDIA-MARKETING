@@ -56,7 +56,3 @@ Route::group([
   Route::post('/checkout', 'WalletController@checkout')->name('checkout');
 
 });
-
-Route::get('/wallets', [WalletTransactionController::class, 'index']);
-Route::post('/checkout', [WalletTransactionController::class, 'checkout']);
-Route::post('/midtrans-callback', [WalletTransactionController::class, 'callback']);
