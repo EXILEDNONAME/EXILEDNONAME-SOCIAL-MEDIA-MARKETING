@@ -8,4 +8,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('auth:sanctum')->post('/midtrans-callback', [WalletController::class, 'callback']);
+Route::post('/midtrans-callback', [WalletController::class, 'callback']);
